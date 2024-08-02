@@ -1,36 +1,32 @@
-pipeline{
-    agent{
-        node{
-            
-     'Jenkins'
-        }
+pipeline {
+    agent {
+        label 'Jenkins'
     }
-    stages{
-        stage('build')
-        {
-            steps{
-                echo "building maven application"
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building Maven application"
             }
         }
-        stage('scan'){
-            parallel{
-                stage('sonar'){
-                    steps{
-                        echo"*** perforing sonar scans"
+        stage('Scan') {
+            parallel {
+                stage('Sonar') {
+                    steps {
+                        echo "*** Performing Sonar scans"
                         sleep 10
                     }
                 }
-                stage('fortify'){
-                    steps{
-                        echo"*performing con scans"
+                stage('Fortify') {
+                    steps {
+                        echo "*** Performing Fortify scans"
                         sleep 10
                     }
                 }
             }
         }
-        stage('deploy'){
-            steps{
-                echo "deploying to env"
+        stage('Deploy') {
+            steps {
+                echo "Deploying to environment"
             }
         }
     }
