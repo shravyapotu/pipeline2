@@ -2,7 +2,7 @@ pipeline{
     agent any
     parameters{
         string(
-            name 'USR_NAME',
+            name: 'USR_NAME',
             defaultValue: 'shravya'
             description: 'do enter your name'
         )
