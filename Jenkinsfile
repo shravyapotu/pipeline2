@@ -22,7 +22,7 @@ pipeline{
             description:'do enter description'
         )
          credentials(
-            name:'mycredentials',
+            name:'myCredentials',
             description:'myCredentials',
             required:'true'
          )
